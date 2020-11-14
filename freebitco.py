@@ -7,6 +7,7 @@ import pyotp
 USERNAME = '' #PUT YOUR USERNAME HERE
 PASSWORD = '' #PUT YOUR PASSWORD HERE
 SECRETKEY = '' #PUT YOUR SECRET KEY HERE
+DRIVERFILE = '' #PUT YOUR CHROMEDRIVER PATH HERE
 
 def otp():
     totp = pyotp.TOTP(SECRETKEY)#YOUR 2FA SECRET KEY
@@ -15,7 +16,7 @@ def otp():
 def main():
     while True:
 
-        driver = webdriver.Chrome("D:/chromedriver.exe")
+        driver = webdriver.Chrome(DRIVERFILE)
         driver.get('https://freebitco.in/?op=signup_page')
         login = driver.find_element_by_class_name('login_menu_button')
         login.click()
