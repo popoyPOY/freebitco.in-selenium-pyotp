@@ -1,1 +1,3 @@
 # freebitco.in-selenium-pyotp
+
+  AUTOMATE CLAIMING BTC PER HOUR IN FREEBITCO.IN USING PYTHON.
