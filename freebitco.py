@@ -3,9 +3,13 @@ from selenium.webdriver.common.keys import Keys
 from time import sleep
 import pyotp
 
+#VARIABLE
+USERNAME = '' #PUT YOUR USERNAME HERE
+PASSWORD = '' #PUT YOUR PASSWORD HERE
+SECRETKEY = '' #PUT YOUR SECRET KEY HERE
 
 def otp():
-    totp = pyotp.TOTP('')#YOUR 2FA SECRET KEY
+    totp = pyotp.TOTP(SECRETKEY)#YOUR 2FA SECRET KEY
     return totp.now()
 
 def main():
@@ -17,9 +21,9 @@ def main():
         login.click()
         sleep(1)
         user = driver.find_element_by_id('login_form_btc_address')
-        user.send_keys('')#YOUR USERNAME
+        user.send_keys(USERNAME)#YOUR USERNAME
         password = driver.find_element_by_id('login_form_password')
-        password.send_keys('')#YOUR PASSWORD
+        password.send_keys(PASSWORD)#YOUR PASSWORD
         button = driver.find_element_by_id('login_button')
         autha = driver.find_element_by_id('login_form_2fa').send_keys(otp())
         button.click()
